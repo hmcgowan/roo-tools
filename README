@@ -1,0 +1,42 @@
+---++ OOGrep
+
+Search multiple spreadsheets using roo. This means that you can search across Excel, Excelx, OpenOffice and Google Spreadsheets.
+
+sage: oogrep.rb [options] searchstring targets
+
+Options:
+    -l, --list-only                  List matching files only
+    -i, --case-insensitive           Case insensitive search
+    -e, --exact-match                Force exact match on cell contents
+    -f, --font STYLE                 Filter results by cell font style
+        --[no-]tabs                  Show/hide tabs in results
+        --[no-]cells                 Show/hide cells in results
+    -?, -h, --help                   Show this message.
+
+
+Note: the current release of roo should work for everything but the font
+---++ Options
+
+---+++ list-only
+
+Only show the names of files that have a match
+
+---+++ case-insensitive
+
+The searches are strict by default but you can make the search ignore case with this option
+
+---+++ exact-match
+
+This option will force the search to only show results if the cell's text matches the search string verbatim
+
+---+++ font-style
+
+You can filter the search results based on the font. Valid values include 'bold', 'italic', 'underline','normal' and 'ignore'. By default the results will ignore the font information. Also note that tabs will be filtered out unless the font is 'normal' or 'ignore'
+
+---+++ [no]-tabs
+
+Show or hide tabs from the results using --tabs or --no-tabs
+
+---+++ [no]-cells
+
+Show or hide cells from the results using --cells or --no-cells
