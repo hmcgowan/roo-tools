@@ -1,4 +1,4 @@
----++ OOGrep
+= OOGrep
 
 Search multiple spreadsheets using roo. This means that you can search across Excel, Excelx, OpenOffice and Google Spreadsheets.
 
@@ -13,30 +13,30 @@ Options:
         --[no-]cells                 Show/hide cells in results
     -?, -h, --help                   Show this message.
 
+== Options
 
-Note: the current release of roo should work for everything but the font
----++ Options
-
----+++ list-only
+* list-only
 
 Only show the names of files that have a match
 
----+++ case-insensitive
+* case-insensitive
 
 The searches are strict by default but you can make the search ignore case with this option
 
----+++ exact-match
+* exact-match
 
 This option will force the search to only show results if the cell's text matches the search string verbatim
 
----+++ font-style
+* font-style
 
-You can filter the search results based on the font. Valid values include 'bold', 'italic', 'underline','normal' and 'ignore'. By default the results will ignore the font information. Also note that tabs will be filtered out unless the font is 'normal' or 'ignore'
+You can filter the search results based on the font. Valid values include 'bold', 'italic', 'underline','normal' and 'ignore'. By default the results will ignore the font information. Also note that tabs will be filtered out unless the font is 'normal' or 'ignore'. 
 
----+++ [no]-tabs
+Note that this feature requires the git version of roo if/until the patch to roo for fonts is integrated
+
+* [no]-tabs
 
 Show or hide tabs from the results using --tabs or --no-tabs
 
----+++ [no]-cells
+* [no]-cells
 
 Show or hide cells from the results using --cells or --no-cells
