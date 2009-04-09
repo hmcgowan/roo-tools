@@ -21,7 +21,7 @@ module RooTools
     def process_files
       @options[:files].each do |file|
         if File.directory?(file)
-          Dir.glob(File.join(file.gsub('\\','/'),"**","*.xls")).each do |file|
+          Dir.glob(File.join(file.gsub('\\','/'),"**","*.{xls, xlsx, ods}")).each do |file|         
             execute(file)
           end
         else
