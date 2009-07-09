@@ -37,6 +37,9 @@ module RooTools
       builder.add_choice(:cells, :type=>:boolean, :default=>true) do | command_line |
         command_line.uses_switch("--cells", "Show/hide cells in results")
       end
+      builder.add_choice(:recurse, :type=>:boolean, :default=>false) do | command_line |
+        command_line.uses_switch("-r", "--recurse", "Search in subdirectories")
+      end
       builder.add_choice(:files) { |command_line |
         command_line.uses_arglist
       }

@@ -21,8 +21,10 @@ module RooTools
     def process_files
       @options[:files].each do |file|
         if File.directory?(file)
-          Dir.glob(File.join(file.gsub('\\','/'),"**","*.{xls, xlsx, ods}")).each do |file|         
-            execute(file)
+          if @options[:recurse]
+            Dir.glob(File.join(file.gsub('\\','/'),"**","*.{xls, xlsx, ods}")).each { |file|  execute(file)}
+          else
+            Dir.glob(File.join(file.gsub('\\','/'),"*.{xls, xlsx, ods}")).each { |file|  execute(file)}
           end
         else
           execute(file)
@@ -31,13 +33,17 @@ module RooTools
     end
 
     def execute(file)
-      @file = file
-      @oo = open_spreadsheet(@file)
-      @oo.sheets.each do |sheet|
-        @oo.default_sheet = sheet
-        check_sheet_name 
-        check_sheet_contents
-        return if @options[:list_only] && @seen[@file] 
+      begin
+        @file = file
+        @oo = open_spreadsheet(@file)
+        @oo.sheets.each do |sheet|
+          @oo.default_sheet = sheet
+          check_sheet_name 
+          check_sheet_contents
+          return if @options[:list_only] && @seen[@file] 
+        end
+      rescue Exception =>e
+        puts "Unable to open file: #{file}"
       end
     end
 
