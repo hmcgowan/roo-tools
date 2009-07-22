@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Hugh McGowan"]
-  s.date = %q{2009-03-12}
+  s.date = %q{2009-04-19}
   s.default_executable = %q{oogrep}
   s.description = %q{Tools using roo to performa actions on multiple spreadsheets}
   s.email = %q{hugh_mcgowan@yahoo.com}
